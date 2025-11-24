@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BizCon | Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-4xl w-full flex flex-col md:flex-row min-h-[500px]">
+        
+        <!-- Left Side: Customer -->
+        <div class="w-full md:w-1/2 p-10 flex flex-col justify-center items-center text-center border-b md:border-b-0 md:border-r border-gray-100 hover:bg-gray-50 transition duration-300">
+            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-blue-600">
+                <i class="fa-regular fa-user text-4xl"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Customer</h2>
+            <p class="text-gray-500 mb-8">Login to browse businesses, write reviews, and rate services.</p>
+            
+            <form onsubmit="handleCustomerLogin(event)" class="w-full max-w-xs space-y-4">
+                <input type="text" id="cust-name" placeholder="Enter your name (optional)" class="w-full p-3 border rounded-lg focus:border-blue-500 outline-none bg-white">
+                <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg">
+                    Continue to Listings
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Side: Admin -->
+        <div class="w-full md:w-1/2 p-10 flex flex-col justify-center items-center text-center bg-gray-50 hover:bg-white transition duration-300">
+            <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-6 text-orange-500">
+                <i class="fa-solid fa-lock text-4xl"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Admin / Business</h2>
+            <p class="text-gray-500 mb-8">Login to manage listings, view stats, and delete businesses.</p>
+            
+            <form onsubmit="handleAdminLogin(event)" class="w-full max-w-xs space-y-4">
+                <input type="password" id="admin-pass" placeholder="Enter Admin PIN" class="w-full p-3 border rounded-lg focus:border-orange-500 outline-none bg-white">
+                <button class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg">
+                    Access Dashboard
+                </button>
+            </form>
+            <p class="text-xs text-gray-400 mt-4">(Hint: Use PIN <b>1234</b>)</p>
+        </div>
+
+    </div>
+
+    <!-- Back to Home -->
+    <a href="index.html" class="absolute top-6 left-6 text-gray-500 hover:text-blue-900 font-bold">
+        <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
+    </a>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BizCon | Add Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <nav class="bg-white shadow px-6 py-4 flex justify-between items-center sticky top-0 z-40">
+        <a href="index.html" class="font-bold text-blue-900 text-2xl">BizCon</a>
+        <a href="index.html" class="text-gray-500 text-sm hover:text-red-500">Cancel</a>
+    </nav>
+    <div class="max-w-2xl mx-auto px-4 py-12">
+        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+            <h1 class="text-3xl font-bold mb-6">Create Listing</h1>
+            <form id="add-business-form" class="space-y-6">
+                <div><label class="block text-sm font-bold mb-1">Business Name</label><input type="text" id="b-name" required class="w-full border p-3 rounded outline-none focus:border-orange-500"></div>
+                <div>
+                    <label class="block text-sm font-bold mb-1">Category</label>
+                    <select id="b-cat" class="w-full border p-3 rounded outline-none bg-white">
+                        <option value="Restaurant">Restaurant</option>
+                        <option value="Services">Services</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health & Medical</option>
+                        <option value="Automotive">Automotive</option>
+                        <option value="Beauty">Beauty</option>
+                    </select>
+                </div>
+                <div><label class="block text-sm font-bold mb-1">Address</label><input type="text" id="b-addr" required class="w-full border p-3 rounded outline-none focus:border-orange-500"></div>
+                <div><label class="block text-sm font-bold mb-1">Description</label><textarea id="b-desc" required class="w-full border p-3 rounded h-24 outline-none focus:border-orange-500"></textarea></div>
+                <div><label class="block text-sm font-bold mb-1">Image URL</label><input type="url" id="b-img" placeholder="https://..." class="w-full border p-3 rounded outline-none focus:border-orange-500"></div>
+                <button type="submit" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition">Publish Listing</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

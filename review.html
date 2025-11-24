@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BizCon | Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="glass m-4 px-6 py-4 flex justify-between items-center sticky top-4 z-50">
+        <a href="index.html" class="font-bold text-white text-2xl">BizCon</a>
+        <a href="listings.html" class="text-gray-300 hover:text-white font-bold"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Left Info -->
+        <div class="md:col-span-1">
+            <div class="glass overflow-hidden sticky top-24">
+                <div class="h-56 relative"><img id="r-img" src="" class="w-full h-full object-cover opacity-80"></div>
+                <div class="p-6">
+                    <span id="r-cat" class="bg-blue-600/30 text-blue-200 border border-blue-500/30 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">Category</span>
+                    <h1 id="r-name" class="text-2xl font-bold text-white mb-1">Loading...</h1>
+                    <p id="r-addr" class="text-gray-400 text-sm mb-4">...</p>
+                    <div class="flex items-center gap-2 mb-4 bg-black/20 p-3 rounded border border-white/10">
+                        <i class="fa-solid fa-star text-yellow-400 text-2xl"></i>
+                        <div><span id="r-score" class="text-3xl font-bold text-white leading-none">0.0</span><div id="r-count" class="text-xs text-gray-400">0 Reviews</div></div>
+                    </div>
+                    <p id="r-desc" class="text-gray-300 text-sm leading-relaxed">...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Form -->
+        <div class="md:col-span-2">
+            <div class="glass p-8 mb-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-orange-500"></div>
+                <h3 class="text-2xl font-bold mb-1 text-white">Rate & Review</h3>
+                <p class="text-gray-400 text-sm mb-6">Share your experience.</p>
+
+                <form id="review-form">
+                    <div class="mb-6 bg-black/20 p-6 rounded-lg border border-white/10 flex flex-col items-center justify-center">
+                        <label class="block text-sm font-bold text-orange-400 mb-2 uppercase tracking-wider">Double tap stars to rate</label>
+                        <div class="flex flex-col items-center gap-2">
+                            <div id="star-input" class="flex gap-3 cursor-pointer">
+                                <i class="fa-regular fa-star text-4xl text-gray-500 transition hover:scale-110" data-value="1"></i>
+                                <i class="fa-regular fa-star text-4xl text-gray-500 transition hover:scale-110" data-value="2"></i>
+                                <i class="fa-regular fa-star text-4xl text-gray-500 transition hover:scale-110" data-value="3"></i>
+                                <i class="fa-regular fa-star text-4xl text-gray-500 transition hover:scale-110" data-value="4"></i>
+                                <i class="fa-regular fa-star text-4xl text-gray-500 transition hover:scale-110" data-value="5"></i>
+                            </div>
+                            <span id="rating-label" class="text-lg font-bold text-white mt-2">Select Rating</span>
+                        </div>
+                    </div>
+                    <div class="mb-4"><label class="block text-sm font-bold mb-1 text-gray-300">Your Name</label><input type="text" id="user-name" required class="glass-input w-full p-3 rounded-lg" placeholder="John Doe"></div>
+                    <div class="mb-6"><label class="block text-sm font-bold mb-1 text-gray-300">Your Review</label><textarea id="user-comment" required class="glass-input w-full p-3 rounded-lg h-32" placeholder="Write here..."></textarea></div>
+                    <button type="submit" class="w-full bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg">Post Review</button>
+                </form>
+            </div>
+
+            <div class="glass p-6">
+                <h3 class="text-xl font-bold mb-6 border-b border-white/10 pb-4 text-white">Customer Reviews</h3>
+                <div id="reviews-list" class="space-y-6"><div class="text-center py-10 text-gray-400">Loading...</div></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

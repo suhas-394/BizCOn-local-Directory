@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BizCon | Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar -->
+        <aside class="w-64 bg-blue-900 text-white hidden md:flex flex-col flex-shrink-0 transition-all duration-300">
+            <div class="h-16 flex items-center justify-center font-bold text-2xl bg-blue-950 shadow-md">
+                <i class="fa-solid fa-handshake mr-2"></i> BizCon
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-blue-800 rounded-lg shadow-sm transition">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-800 rounded-lg text-blue-200 transition">
+                    <i class="fa-solid fa-globe"></i> View Live Site
+                </a>
+            </nav>
+            <div class="p-4 bg-blue-950">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center font-bold">A</div>
+                    <div class="text-sm">
+                        <div class="font-bold">Admin User</div>
+                        <div class="text-xs text-blue-300">Super Admin</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden relative">
+            
+            <!-- Mobile Header -->
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6 md:hidden">
+                <span class="font-bold text-xl text-blue-900">BizCon Admin</span>
+                <a href="index.html" class="text-gray-500"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="flex-1 overflow-y-auto p-6 md:p-8">
+                
+                <div class="flex flex-col md:flex-row justify-between items-end md:items-center mb-8 gap-4">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
+                        <p class="text-gray-500 mt-1">Manage listings and view performance stats.</p>
+                    </div>
+                    <a href="add-business.html" class="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Add New Business
+                    </a>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-500">
+                        <div class="text-gray-500 text-sm font-medium mb-1">Total Listings</div>
+                        <div id="stat-total" class="text-3xl font-bold text-gray-800">0</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-500">
+                        <div class="text-gray-500 text-sm font-medium mb-1">Total Views</div>
+                        <div id="stat-views" class="text-3xl font-bold text-gray-800">0</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-green-500">
+                        <div class="text-gray-500 text-sm font-medium mb-1">Total Reviews</div>
+                        <div id="stat-reviews" class="text-3xl font-bold text-gray-800">0</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-purple-500">
+                        <div class="text-gray-500 text-sm font-medium mb-1">Avg Rating</div>
+                        <div id="stat-rating" class="text-3xl font-bold text-gray-800">0.0</div>
+                    </div>
+                </div>
+
+                <!-- Filter Toolbar -->
+                <div class="bg-white p-4 rounded-t-xl border-b flex flex-col md:flex-row gap-4 justify-between items-center shadow-sm">
+                    <div class="flex items-center gap-2 w-full md:w-auto">
+                        <i class="fa-solid fa-filter text-gray-400"></i>
+                        <span class="font-bold text-gray-700">Filters:</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-3 w-full md:w-auto">
+                        
+                        <!-- Sort Dropdown -->
+                        <select id="admin-sort" class="border p-2 rounded-lg text-sm bg-gray-50 outline-none focus:border-blue-500">
+                            <option value="newest">Sort by: Newest Added</option>
+                            <option value="views">Sort by: Most Viewed</option>
+                            <option value="rating_high">Sort by: Highest Rated</option>
+                            <option value="reviews_high">Sort by: Most Reviews</option>
+                        </select>
+
+                        <!-- Filter Dropdown -->
+                        <select id="admin-filter" class="border p-2 rounded-lg text-sm bg-gray-50 outline-none focus:border-blue-500">
+                            <option value="all">Show: All Listings</option>
+                            <option value="4star">Above 4 Stars</option>
+                            <option value="3star">Above 3 Stars</option>
+                            <option value="popular">Popular (> 100 Views)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="bg-white rounded-b-xl shadow overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-50 border-b">
+                            <tr>
+                                <th class="p-4 text-sm font-bold text-gray-600">Business Name</th>
+                                <th class="p-4 text-sm font-bold text-gray-600">Category</th>
+                                <th class="p-4 text-sm font-bold text-gray-600 text-center">Rating</th>
+                                <th class="p-4 text-sm font-bold text-gray-600 text-center">Views</th>
+                                <th class="p-4 text-sm font-bold text-gray-600 text-center">Reviews</th>
+                                <th class="p-4 text-sm font-bold text-gray-600 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-table-body">
+                            <tr><td colspan="6" class="p-8 text-center text-gray-500"><span class="loader"></span> Loading Dashboard Data...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
